@@ -13,15 +13,11 @@ Macro "macro"
 //Set-up Parameters
 Scen_Directory = "C:\\TrafficModeling\\zResearch\\ISMS_2.0_Externals\\Testing\\Model\\2017\\"
 mod_dir = "C:\\TrafficModeling\\zResearch\\ISMS_2.0_Externals\\Testing\\Model\\"
-baseyr = "2017"
 ix_files = mod_dir + "All_Input\\IX-XI-XX-Trips\\"
-itram_subarea = {ix_files + "PA_Subarea_Base.mtx", ix_files + "PA_Subarea_Future.mtx"}
-traf_fore = ix_files + "Traffic_Forecasts.bin"
 tripgen = Scen_Directory + "Outputs\\1 TripGeneration\\" //This should be compatiable with ISMS as long as Scen Directory is changed/modified to be compatabile with ISMS
-tod_3_split = {".2", ".27", ".53"} //Split needs verified(placeholders), AM, PM, OP
 tod_4_split = {".2", ".2", ".25", ".35"} //Split needs verified(placeholders), AM, PM, OP, MD
 tod_char = {"AM", "PM", "OP", "MD"}
-wdwe_split = {(5/7), (2/7)}
+baseyr = "2017sasdfgasd
 itram_trip = {"HBW", "HBO", "NHB", "LDW", "LDNW", "APRT", "SU", "COMBO"}
 isms_trip = {"HBWL", "HBWM", "HBWH", "HBSC", "HBSH", "HBO", "NHB", "UNIV", "APRT", "HOSP", "RREC", "HOT", "SU", "COMBO"}
 conv = tripgen + "itram_isms_conversion.bin"
@@ -38,18 +34,9 @@ for z = 1 to 2 do //begin years array loop
   wrk_mtx = CopyFile(itram_subarea[z], tripgen + "PA_Subarea_"+char_array[z]+".mtx")
 
   //Copy Traffic Forecast file to Trip Generation as a working file
-  Traf_table = OpenTable("TrafficForecasts", "FFB", {traf_fore})
-  setview(Traf_table)
-  conv = tripgen + "itram_isms_conversion_"+char_array[z]+".bin"
-  exportview(Traf_table+"|", "FFB", conv,,)
 
-
-  conv_vw = OpenTable("itram_isms_conversion"+char_array[z], "FFB", {conv})
   setview(conv_vw)
-
-//Add fields to itram_isms_conversion file for later processes
-  strct = GetTableStructure(conv_vw)
-  for i = 1 to strct.length do
+  Traf_table = Opeasdf
   strct[i] = strct[i] + {strct[i][1]}
   end
 
@@ -58,13 +45,11 @@ for z = 1 to 2 do //begin years array loop
                       {"i_LDW","Real", 12, 3,,,,,,,, },{"i_LDNW","Real", 12, 3,,,,,,,, }, {"i_APRT","Real", 12, 3,,,,,,,, },
                       {"I_SU","Real", 12, 3,,,,,,,, }, {"i_COMBO","Real", 12, 3,,,,,,,, },
                     {"-- ","Character", 12, 3,,,,,,,, },
-                      {"i_HBW_O","Real", 12, 3,,,,,,,, },
-                      {"i_HBO_O","Real", 12, 3,,,,,,,, }, {"i_NHB_O","Real", 16, 2,,,,,,,, }, {"i_LDW_O","Real", 16, 2,,,,,,,, },
-                      {"i_LDNW_O","Real", 16, 2,,,,,,,, }, {"i_APRT_O","Real", 16, 2,,,,,,,, }, {"i_SU_O","Real", 16, 2,,,,,,,, },
+                      {"i_HBW_O"asdfsdafas
                       {"i_COMBO_O","Real", 16, 2,,,,,,,, },
                     {"-- ","Character", 12, 3,,,,,,,, },
                       {"i_HBW_D","Real", 12, 3,,,,,,,, },
-                      {"i_HBO_D","Real", 12, 3,,,,,,,, }, {"i_NHB_D","Real", 16, 2,,,,,,,, }, {"i_LDW_D","Real", 16, 2,,,,,,,, },
+                      {"i_HBO_D","Real", asdfasdfawsdfasd12, 3,,,,,,,, }, {"i_NHB_D","Real", 16, 2,,,,,,,, }, {"i_LDW_D","Real", 16, 2,,,,,,,, },
                       {"i_LDNW_D","Real", 16, 2,,,,,,,, }, {"i_APRT_D","Real", 16, 2,,,,,,,, }, {"i_SU_D","Real", 16, 2,,,,,,,, },
                       {"i_COMBO_D","Real", 16, 2,,,,,,,, },
                     {"-- ","Character", 12, 3,,,,,,,, },
