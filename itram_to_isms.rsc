@@ -13,10 +13,6 @@ Macro "macro"
 //Set-up Parameters
 Scen_Directory = "C:\\TrafficModeling\\zResearch\\ISMS_2.0_Externals\\Testing\\Model\\2017\\"
 mod_dir = "C:\\TrafficModeling\\zResearch\\ISMS_2.0_Externals\\Testing\\Model\\"
-ix_files = mod_dir + "All_Input\\IX-XI-XX-Trips\\"
-tripgen = Scen_Directory + "Outputs\\1 TripGeneration\\" //This should be compatiable with ISMS as long as Scen Directory is changed/modified to be compatabile with ISMS
-tod_4_split = {".2", ".2", ".25", ".35"} //Split needs verified(placeholders), AM, PM, OP, MD
-tod_char = {"AM", "PM", "OP", "MD"}
 baseyr = "2017sasdfgasd
 itram_trip = {"HBW", "HBO", "NHB", "LDW", "LDNW", "APRT", "SU", "COMBO"}
 isms_trip = {"HBWL", "HBWM", "HBWH", "HBSC", "HBSH", "HBO", "NHB", "UNIV", "APRT", "HOSP", "RREC", "HOT", "SU", "COMBO"}
@@ -34,8 +30,6 @@ for z = 1 to 2 do //begin years array loop
   wrk_mtx = CopyFile(itram_subarea[z], tripgen + "PA_Subarea_"+char_array[z]+".mtx")
 
   //Copy Traffic Forecast file to Trip Generation as a working file
-
-  setview(conv_vw)
   Traf_table = Opeasdf
   strct[i] = strct[i] + {strct[i][1]}
   end
